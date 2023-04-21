@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum HurdleType {
+  pipe = 0, 
+  lewis = 1, 
+  frankie = 2
+};
+
 public class HurdleGenerator : MonoBehaviour
 {
 
     public GameObject hurdle;
+    public GameObject lewis;
+    public GameObject frankie;
     
     // these will be replaced by input midi song-params...
     public float spawnRate = 2;
     public float heightOffset = 10;
 
     private float timer = 0;
+    private int numHurdles = 0;
+
+    int hurdleType = 0;
 
 
     float getHeightOffset(float lo, float hi) {
@@ -20,10 +31,23 @@ public class HurdleGenerator : MonoBehaviour
     }
 
     void generateHurdle() {
-      float lo = transform.position.y - heightOffset;
-      float hi = transform.position.y + heightOffset;
-      float offset = getHeightOffset(lo, hi);
-      Instantiate(hurdle, new Vector3(transform.position.x, offset, 0), transform.rotation);
+
+      if(numHurdles > 5) {
+        hurdleType = Random.Range(0, 3);
+        Debug.Log(hurdleType);
+      }
+
+      if(hurdleType == 0) {
+        float lo = transform.position.y - heightOffset;
+        float hi = transform.position.y + heightOffset;
+        float offset = getHeightOffset(lo, hi);
+        Instantiate(hurdle, new Vector3(transform.position.x, offset, 0), transform.rotation);
+      } else if(hurdleType == 1) {
+        Instantiate(lewis, new Vector3(transform.position.x, 2, 0), transform.rotation);
+      } else if(hurdleType == 2) {
+        Instantiate(frankie, new Vector3(transform.position.x, 2, 0), transform.rotation);
+      }
+      numHurdles++;
     }
 
     // Start is called before the first frame update
