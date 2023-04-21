@@ -42,6 +42,7 @@
      <Compile Include="Assets\Hurdle.cs" />
      <Compile Include="Assets\HurdleGenerator.cs" />
      <Compile Include="Assets\HurdlePass.cs" />
+     <Compile Include="Assets\Pipe.cs" />
      <Compile Include="Assets\PipeGenerator.cs" />
      <Compile Include="Assets\QABird.cs" />
      <Compile Include="Assets\Scores.cs" />

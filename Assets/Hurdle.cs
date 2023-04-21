@@ -5,6 +5,9 @@ using UnityEngine;
 public class Hurdle : MonoBehaviour
 {
 
+    public GameObject bottomPipe;
+    public GameObject topPipe;
+
     public float speedMultiplier = 5.0f;
     private float deletePos = -40;
 
@@ -16,7 +19,7 @@ public class Hurdle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame

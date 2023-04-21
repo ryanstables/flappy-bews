@@ -32,9 +32,8 @@ public class HurdleGenerator : MonoBehaviour
 
     void generateHurdle() {
 
-      if(numHurdles > 5) {
+      if(numHurdles >= 5) {
         hurdleType = Random.Range(0, 3);
-        Debug.Log(hurdleType);
       }
 
       if(hurdleType == 0) {
